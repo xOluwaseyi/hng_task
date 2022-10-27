@@ -24,7 +24,7 @@ export const links = [
     id: 4,
     id_text: "book__python",
     link: "https://books.zuri.team/python-for-beginners?ref_id=seyikodes",
-    link_text: "Python Books",
+    link_text: "Python Book",
     link_desc: "This book will help you understand everything you need to know about Python as a beginner. It goes in-depth and is very easy to comprehend."
   },
   {
@@ -38,7 +38,7 @@ export const links = [
     id: 6,
     id_text: "book__design",
     link: "https://books.zuri.team/design-rules",
-    link_text: "Design Books",
+    link_text: "Design Book",
     link_desc: "This book is a design rule book and is absolutely free for both designers and even non-designers, it's highly recommendable."
   },
 ];
