@@ -7,9 +7,11 @@ import github_logo from "../../assets/github_logo.png";
 const LinksSection = () => {
   return (
     <section className={classes.links}>
+    {/* links */}
       {links.map((link) => {
         return (
           <div key={link.id} className={classes.link_btn_div}>
+          {/* link */}
             <a
               id={link.id_text}
               href={link.link}
@@ -19,6 +21,8 @@ const LinksSection = () => {
               {link.link_text}
             </a>
 
+
+{/* link description */}
             {link.link_desc && (
               <p className={classes.link_desc}>{link.link_desc}</p>
             )}
@@ -26,6 +30,7 @@ const LinksSection = () => {
         );
       })}
 
+{/* slack and github logos */}
       <div className={classes.logos}>
         <a href="https://slack.com/">
           <img src={slack_logo} alt="slack logo" />
