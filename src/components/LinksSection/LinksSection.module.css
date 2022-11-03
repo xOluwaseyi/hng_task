@@ -23,6 +23,10 @@
   font-weight: 600;
 }
 
+.link__btn:hover {
+    background-color: #D0D5DD;
+}
+
 .link_desc {
   padding: 10px 5px;
   width: 95%;
