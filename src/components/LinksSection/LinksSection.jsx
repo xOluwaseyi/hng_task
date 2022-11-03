@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { links } from "./LinksData";
 import classes from "./LinksSection.module.css";
 import slack_logo from "../../assets/slack_logo.png";
@@ -7,11 +8,11 @@ import github_logo from "../../assets/github_logo.png";
 const LinksSection = () => {
   return (
     <section className={classes.links}>
-    {/* links */}
+      {/* links */}
       {links.map((link) => {
         return (
           <div key={link.id} className={classes.link_btn_div}>
-          {/* link */}
+            {/* link */}
             <a
               id={link.id_text}
               href={link.link}
@@ -21,8 +22,7 @@ const LinksSection = () => {
               {link.link_text}
             </a>
 
-
-{/* link description */}
+            {/* link description */}
             {link.link_desc && (
               <p className={classes.link_desc}>{link.link_desc}</p>
             )}
@@ -30,7 +30,11 @@ const LinksSection = () => {
         );
       })}
 
-{/* slack and github logos */}
+      <Link to="contact" id="contact" className={classes.link__btn}>
+        Contact Me
+      </Link>
+
+      {/* slack and github logos */}
       <div className={classes.logos}>
         <a href="https://slack.com/">
           <img src={slack_logo} alt="slack logo" />
