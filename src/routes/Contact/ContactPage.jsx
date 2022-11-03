@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "./ContactPage.module.css";
 import FooterSection from "../../components/FooterSection/FooterSection";
 
@@ -11,7 +11,9 @@ const ContactPage = () => {
   });
 
   const [emailError, setEmailError] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
+  // to handle when input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -21,6 +23,7 @@ const ContactPage = () => {
     });
   };
 
+  // to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -31,6 +34,7 @@ const ContactPage = () => {
     }
 
     if (firstName !== "" && lastName !== "" && email !== "" && message !== "") {
+      setShowMessage(true);
       setEmailError(false);
       setFormData({
         firstName: "",
@@ -41,8 +45,26 @@ const ContactPage = () => {
     }
   };
 
+
+  // to clear success message
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowMessage(false);
+    }, [2000]);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [showMessage]);
+
   return (
     <section>
+      {/* success message */}
+      {showMessage && (
+        <p className={classes.form_modal}>Your message sent succesfully</p>
+      )}
+
+      {/* contact form */}
       <div className={classes.contact_container}>
         <h1>Contact Me</h1>
         <p>Hi there, contact me to ask me about anything you have in mind.</p>
@@ -111,7 +133,6 @@ const ContactPage = () => {
               id="message"
               name="message"
               placeholder="Send me a message and I'll reply you as soon as possible..."
-              maxLength="5"
             ></textarea>
             {emailError && <p>Please enter a message</p>}
           </div>
