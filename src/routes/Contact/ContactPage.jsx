@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "./ContactPage.module.css";
 import FooterSection from "../../components/FooterSection/FooterSection";
+import ScrollToTop from "../../ScrollToTop";
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -45,7 +46,6 @@ const ContactPage = () => {
     }
   };
 
-
   // to clear success message
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -56,6 +56,7 @@ const ContactPage = () => {
       clearTimeout(timeout);
     };
   }, [showMessage]);
+
 
   return (
     <section>
@@ -125,7 +126,7 @@ const ContactPage = () => {
             <textarea
               style={{
                 outline: `${
-                  emailError ? "2px solid red" : "2px solid #d0d5dd"
+                  emailError ? "2px solid red" : "1px solid #d0d5dd"
                 }`,
               }}
               value={formData.message}
@@ -153,6 +154,9 @@ const ContactPage = () => {
       </div>
 
       <FooterSection />
+
+      {/* to scroll to top and route changes here */}
+      <ScrollToTop />
     </section>
   );
 };
