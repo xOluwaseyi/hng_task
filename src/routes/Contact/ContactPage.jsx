@@ -62,7 +62,7 @@ const ContactPage = () => {
     <section>
       {/* success message */}
       {showMessage && (
-        <p className={classes.form_modal}>Your message sent succesfully</p>
+        <p className={classes.form_modal}>Your message was sent succesfully</p>
       )}
 
       {/* contact form */}
